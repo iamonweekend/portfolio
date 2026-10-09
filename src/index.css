@@ -1,0 +1,218 @@
+/* ==========================================================================
+   VANSH — EARLY-WEB / RETRO PERSONAL PORTFOLIO
+   Strict Monochrome · 2px/3px Black Borders · Hard Drop Shadows · Boxed Modules
+   ========================================================================== */
+
+:root {
+  /* Strict Monochrome Retro Palette */
+  --c-black: #000000;
+  --c-offwhite: #F5F5F0;
+  --c-lightgray: #D9D9D4;
+  --c-darkgray: #333333;
+  --c-white: #FFFFFF;
+
+  /* Typography */
+  --font-retro: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "Space Mono", monospace;
+
+  /* Global Layout */
+  --max-width: 1040px;
+  --pad: clamp(1rem, 3.5vw, 2rem);
+
+  /* Hard Graphic Borders & Shadows */
+  --border-2: 2px solid #000000;
+  --border-3: 3px solid #000000;
+  --shadow-retro: 4px 4px 0 #000000;
+  --shadow-retro-sm: 3px 3px 0 #000000;
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-retro);
+  background-color: var(--c-offwhite);
+  color: var(--c-black);
+  font-size: 16px;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--c-offwhite);
+  color: var(--c-black);
+  min-height: 100vh;
+  position: relative;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.12) 0.85px, transparent 0.85px);
+  background-size: 20px 20px;
+}
+
+::selection {
+  background-color: var(--c-black);
+  color: var(--c-white);
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-retro);
+  color: var(--c-black);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+p {
+  color: var(--c-darkgray);
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+}
+
+/* Section Box Title */
+.retro-section-heading {
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--c-black);
+  margin-bottom: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-bottom: 3px solid var(--c-black);
+  padding-bottom: 0.35rem;
+}
+
+/* Standard Boxed Card */
+.retro-box {
+  background-color: var(--c-white);
+  border: var(--border-2);
+  box-shadow: var(--shadow-retro);
+  border-radius: 2px;
+}
+
+/* Retro Interactive Button */
+.retro-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--c-lightgray);
+  color: var(--c-black);
+  border: var(--border-2);
+  box-shadow: var(--shadow-retro-sm);
+  padding: 0.75rem 1.4rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.retro-btn:hover {
+  background-color: var(--c-black);
+  color: var(--c-white);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #000000;
+}
+
+/* Retro Window Titlebar */
+.retro-window-header {
+  background-color: var(--c-lightgray);
+  border-bottom: var(--border-2);
+  padding: 0.5rem 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--c-black);
+  font-weight: 700;
+}
+
+.retro-window-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.retro-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid #000000;
+  background-color: #000000;
+}
+
+.retro-dot.empty {
+  background-color: transparent;
+}
+
+/* Micro details */
+.retro-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  background-color: var(--c-lightgray);
+  border: 1.5px solid #000000;
+  font-weight: 600;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--c-offwhite);
+  border-left: 1.5px solid #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--c-darkgray);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-black);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
