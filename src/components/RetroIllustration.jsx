@@ -10,6 +10,7 @@ export function RetroIllustration() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        overflow: "hidden",
       }}
     >
       <svg
@@ -19,7 +20,8 @@ export function RetroIllustration() {
         style={{
           width: "100%",
           height: "auto",
-          overflow: "visible",
+          maxWidth: "100%",
+          display: "block",
         }}
       >
         {/* Subtle Background Halftone / Grid Frame */}

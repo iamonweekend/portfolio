@@ -64,10 +64,11 @@ export function ExperienceCard({ item }) {
       {/* Module Body */}
       <div
         style={{
-          padding: "1.35rem 1.5rem",
+          padding: "clamp(1.1rem, 3vw, 1.5rem)",
           display: "flex",
           flexDirection: "column",
           gap: "0.75rem",
+          minWidth: 0,
         }}
       >
         {/* Company Title & Type Tag */}
@@ -78,15 +79,18 @@ export function ExperienceCard({ item }) {
             alignItems: "baseline",
             flexWrap: "wrap",
             gap: "0.6rem",
+            minWidth: 0,
           }}
         >
           <h3
             style={{
-              fontSize: "1.35rem",
+              fontSize: "clamp(1.15rem, 3vw, 1.35rem)",
               fontWeight: 700,
               letterSpacing: "-0.02em",
               color: "#000000",
               margin: 0,
+              minWidth: 0,
+              wordBreak: "break-word",
             }}
           >
             {hasUrl ? (
@@ -100,18 +104,20 @@ export function ExperienceCard({ item }) {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "0.35rem",
+                  wordBreak: "break-word",
+                  maxWidth: "100%",
                 }}
                 className="exp-company-link"
               >
                 <span>{item.company.toUpperCase()}</span>
-                <ArrowUpRight size={18} strokeWidth={2.5} />
+                <ArrowUpRight size={18} strokeWidth={2.5} style={{ flexShrink: 0 }} />
               </a>
             ) : (
               <span>{item.company.toUpperCase()}</span>
             )}
           </h3>
 
-          <span className="retro-tag">{item.type}</span>
+          <span className="retro-tag" style={{ maxWidth: "100%" }}>{item.type}</span>
         </div>
 
         {/* Description */}
@@ -128,7 +134,7 @@ export function ExperienceCard({ item }) {
 
         {/* Clickable Website Link (if provided) */}
         {hasUrl && (
-          <div style={{ paddingTop: "0.35rem" }}>
+          <div style={{ paddingTop: "0.35rem", minWidth: 0 }}>
             <a
               href={item.url}
               target="_blank"
@@ -144,17 +150,23 @@ export function ExperienceCard({ item }) {
                 textDecoration: "none",
                 borderBottom: "1.5px solid #000000",
                 paddingBottom: "1px",
+                wordBreak: "break-all",
+                maxWidth: "100%",
               }}
               className="exp-url-link"
             >
               <span>{displayUrl}</span>
-              <ArrowUpRight size={14} strokeWidth={2.5} />
+              <ArrowUpRight size={14} strokeWidth={2.5} style={{ flexShrink: 0 }} />
             </a>
           </div>
         )}
       </div>
 
       <style>{`
+        .retro-exp-card {
+          min-width: 0;
+          max-width: 100%;
+        }
         .retro-exp-card:hover {
           transform: translate(-1px, -1px);
           box-shadow: 4px 4px 0 #000000 !important;
@@ -165,6 +177,11 @@ export function ExperienceCard({ item }) {
         .exp-url-link:hover {
           background-color: #000000;
           color: #FFFFFF !important;
+        }
+        @media (max-width: 480px) {
+          .retro-exp-card {
+            box-shadow: 2.5px 2.5px 0 #000000 !important;
+          }
         }
       `}</style>
     </article>

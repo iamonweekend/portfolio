@@ -21,7 +21,10 @@ export function Experience({ experience, totalExperience = "2 YEARS OF BUILDING 
             borderRadius: "2px",
             marginBottom: "2rem",
             overflow: "hidden",
+            maxWidth: "100%",
+            minWidth: 0,
           }}
+          className="retro-exp-callout"
         >
           <div className="retro-window-header">
             <div className="retro-window-dots">
@@ -34,15 +37,16 @@ export function Experience({ experience, totalExperience = "2 YEARS OF BUILDING 
 
           <div
             style={{
-              padding: "clamp(1.5rem, 3.5vw, 2.25rem)",
+              padding: "clamp(1.25rem, 3.5vw, 2.25rem)",
               display: "flex",
               justifyContent: "space-between",
               alignItems: "flex-end",
               flexWrap: "wrap",
-              gap: "1.5rem",
+              gap: "1.25rem",
+              minWidth: 0,
             }}
           >
-            <div>
+            <div style={{ minWidth: 0 }}>
               <div
                 style={{
                   fontFamily: "var(--font-mono)",
@@ -65,6 +69,7 @@ export function Experience({ experience, totalExperience = "2 YEARS OF BUILDING 
                   letterSpacing: "-0.03em",
                   color: "#000000",
                   textTransform: "uppercase",
+                  wordBreak: "break-word",
                 }}
               >
                 2 YEARS<br />
@@ -76,15 +81,16 @@ export function Experience({ experience, totalExperience = "2 YEARS OF BUILDING 
             <div
               style={{
                 fontFamily: "var(--font-mono)",
-                fontSize: "0.85rem",
+                fontSize: "0.82rem",
                 fontWeight: 700,
                 backgroundColor: "var(--c-lightgray)",
                 border: "2px solid #000000",
                 boxShadow: "3px 3px 0 #000000",
-                padding: "0.65rem 1.15rem",
+                padding: "0.6rem 1rem",
                 letterSpacing: "0.04em",
                 color: "#000000",
                 borderRadius: "2px",
+                maxWidth: "100%",
               }}
             >
               2 YEARS EXPERIENCE
@@ -93,12 +99,20 @@ export function Experience({ experience, totalExperience = "2 YEARS OF BUILDING 
         </div>
 
         {/* Boxed Experience Modules Stack */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", minWidth: 0 }}>
           {experience.map((item, idx) => (
             <ExperienceCard key={item.id || idx} item={item} />
           ))}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 480px) {
+          .retro-exp-callout {
+            box-shadow: 3px 3px 0 #000000 !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

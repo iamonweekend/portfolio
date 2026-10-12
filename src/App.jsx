@@ -10,7 +10,7 @@ import { Footer } from "./components/Footer";
 
 export default function App() {
   useEffect(() => {
-    document.title = "Vansh Portfolio";
+    document.title = "Vansh — Frontend Developer";
   }, []);
 
   const handleNavigate = (targetId) => {
@@ -21,7 +21,7 @@ export default function App() {
   };
 
   return (
-    <div style={{ position: "relative", minHeight: "100vh" }}>
+    <div style={{ position: "relative", minHeight: "100vh", overflowX: "hidden", width: "100%", maxWidth: "100vw" }}>
       {/* 1. RETRO RECTANGULAR NAVIGATION BAR */}
       <Navbar
         personal={portfolio.personal}

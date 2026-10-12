@@ -17,6 +17,9 @@ export function Navbar({ onNavigate }) {
         paddingTop: "clamp(1.75rem, 3.5vw, 2.5rem)",
         paddingBottom: "clamp(1rem, 2.5vw, 1.75rem)",
         width: "100%",
+        paddingLeft: "0.75rem",
+        paddingRight: "0.75rem",
+        boxSizing: "border-box",
       }}
     >
       <nav
@@ -28,7 +31,7 @@ export function Navbar({ onNavigate }) {
           display: "inline-flex",
           alignItems: "stretch",
           overflow: "hidden",
-          maxWidth: "calc(100% - 2rem)",
+          maxWidth: "100%",
         }}
         className="retro-nav-box"
       >
@@ -71,9 +74,18 @@ export function Navbar({ onNavigate }) {
           color: #FFFFFF !important;
         }
         @media (max-width: 480px) {
+          .retro-nav-box {
+            box-shadow: 2.5px 2.5px 0 #000000 !important;
+          }
           .retro-nav-item {
-            padding: 0.55rem 0.65rem !important;
-            font-size: 0.8rem !important;
+            padding: 0.5rem 0.5rem !important;
+            font-size: 0.76rem !important;
+          }
+        }
+        @media (max-width: 360px) {
+          .retro-nav-item {
+            padding: 0.45rem 0.35rem !important;
+            font-size: 0.7rem !important;
           }
         }
       `}</style>

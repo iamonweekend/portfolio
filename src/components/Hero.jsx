@@ -22,15 +22,16 @@ export function Hero({ personal, onNavigate }) {
           className="hero-two-col"
         >
           {/* Left Column: Greeting, Name, Intro, Retro CTA Button */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", minWidth: 0 }}>
             <div>
               <h1
                 style={{
-                  fontSize: "clamp(3rem, 6.5vw, 4.75rem)",
+                  fontSize: "clamp(2.35rem, 7.5vw, 4.75rem)",
                   fontWeight: 700,
-                  lineHeight: 1.02,
+                  lineHeight: 1.05,
                   letterSpacing: "-0.03em",
                   color: "var(--c-black)",
+                  wordBreak: "break-word",
                 }}
               >
                 {personal.greeting}
@@ -41,7 +42,7 @@ export function Hero({ personal, onNavigate }) {
 
             <p
               style={{
-                fontSize: "clamp(1.05rem, 1.4vw, 1.2rem)",
+                fontSize: "clamp(1.02rem, 1.4vw, 1.2rem)",
                 lineHeight: 1.6,
                 color: "var(--c-darkgray)",
                 maxWidth: "460px",
@@ -55,8 +56,9 @@ export function Hero({ personal, onNavigate }) {
                 onClick={() => onNavigate("projects")}
                 className="retro-btn"
                 style={{
-                  fontSize: "1rem",
-                  padding: "0.85rem 1.6rem",
+                  fontSize: "0.95rem",
+                  padding: "0.85rem 1.5rem",
+                  maxWidth: "100%",
                 }}
               >
                 <span>VIEW MY WORK</span>
@@ -66,7 +68,7 @@ export function Hero({ personal, onNavigate }) {
           </div>
 
           {/* Right Column: Original Retro Monochrome Computer Art */}
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ display: "flex", justifyContent: "center", minWidth: 0, width: "100%", overflow: "hidden" }}>
             <RetroIllustration />
           </div>
         </div>
@@ -75,7 +77,7 @@ export function Hero({ personal, onNavigate }) {
       <style>{`
         @media (max-width: 768px) {
           .hero-two-col {
-            grid-template-columns: 1fr !important;
+            grid-template-columns: minmax(0, 1fr) !important;
             gap: 2.5rem !important;
           }
         }

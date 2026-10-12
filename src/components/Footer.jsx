@@ -18,6 +18,9 @@ export function Footer({ footer }) {
         paddingTop: "clamp(3.5rem, 6vw, 4.75rem)",
         paddingBottom: "clamp(3.5rem, 6vw, 4.75rem)",
         textAlign: "center",
+        width: "100%",
+        maxWidth: "100vw",
+        overflowX: "hidden",
       }}
     >
       <div

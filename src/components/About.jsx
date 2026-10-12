@@ -19,7 +19,10 @@ export function About({ about }) {
             boxShadow: "4px 4px 0 #000000",
             borderRadius: "2px",
             overflow: "hidden",
+            maxWidth: "100%",
+            minWidth: 0,
           }}
+          className="about-retro-card"
         >
           {/* Top Window Bar */}
           <div className="retro-window-header">
@@ -131,13 +134,22 @@ export function About({ about }) {
       </div>
 
       <style>{`
+        .about-retro-card {
+          min-width: 0;
+          max-width: 100%;
+        }
         @media (max-width: 560px) {
           .about-meta-grid {
-            grid-template-columns: 1fr !important;
+            grid-template-columns: minmax(0, 1fr) !important;
           }
           .about-meta-col-left {
             border-right: none !important;
             border-bottom: 2px solid #000000 !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .about-retro-card {
+            box-shadow: 3px 3px 0 #000000 !important;
           }
         }
       `}</style>

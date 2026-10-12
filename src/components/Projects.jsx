@@ -16,7 +16,7 @@ export function Projects({ projects }) {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))",
             gap: "2rem",
           }}
           className="projects-grid"
@@ -30,7 +30,8 @@ export function Projects({ projects }) {
       <style>{`
         @media (max-width: 640px) {
           .projects-grid {
-            grid-template-columns: 1fr !important;
+            grid-template-columns: minmax(0, 1fr) !important;
+            gap: 1.5rem !important;
           }
         }
       `}</style>

@@ -134,6 +134,8 @@ export function ProjectCard({ project }) {
         flexDirection: "column",
         overflow: "hidden",
         transition: "transform 0.15s ease, box-shadow 0.15s ease",
+        minWidth: 0,
+        maxWidth: "100%",
       }}
       className="project-browser-card"
     >
@@ -142,17 +144,17 @@ export function ProjectCard({ project }) {
         href={projectUrl}
         target="_blank"
         rel="noopener noreferrer"
-        style={{ textDecoration: "none", color: "inherit" }}
+        style={{ textDecoration: "none", color: "inherit", minWidth: 0 }}
       >
-        <div className="retro-window-header">
-          <div className="retro-window-dots">
+        <div className="retro-window-header" style={{ minWidth: 0 }}>
+          <div className="retro-window-dots" style={{ flexShrink: 0 }}>
             <span className="retro-dot" />
             <span className="retro-dot empty" />
             <span className="retro-dot empty" />
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <span style={{ opacity: 0.6 }}>{project.number}</span>
-            <span>{project.filename}</span>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", minWidth: 0, overflow: "hidden" }}>
+            <span style={{ opacity: 0.6, flexShrink: 0 }}>{project.number}</span>
+            <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{project.filename}</span>
           </div>
         </div>
       </a>
@@ -308,12 +310,21 @@ export function ProjectCard({ project }) {
       </div>
 
       <style>{`
+        .project-browser-card {
+          min-width: 0;
+          max-width: 100%;
+        }
         .project-browser-card:hover {
           transform: translate(-2px, -2px);
           box-shadow: 6px 6px 0 #000000 !important;
         }
         .project-browser-card:hover .project-preview-img {
           transform: scale(1.03);
+        }
+        @media (max-width: 480px) {
+          .project-browser-card {
+            box-shadow: 3px 3px 0 #000000 !important;
+          }
         }
       `}</style>
     </article>
